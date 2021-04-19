@@ -1,0 +1,38 @@
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    width:100vw;
+    background-color: #d62424;
+    color:white;
+    height: 10vh;
+    border:none;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+
+}
+.navbar_logo{
+    margin-left:5%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+}
+.navbar_button{
+    margin-right: 5%;
+    
+}
+.btn{
+    background: black;
+    color:white;
+    padding:0.5rem;
+    border:none;
+    font-size:1rem;
+    border-radius: 0.5rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+.btn:hover{
+    color:black;
+    background:yellow;
+    cursor: pointer;
+}
