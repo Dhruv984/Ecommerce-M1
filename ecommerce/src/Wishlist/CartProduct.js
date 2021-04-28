@@ -1,18 +1,24 @@
-import React,{useContext} from 'react'
+import React, { useContext } from 'react'
 
-import {CartContext} from '../context/Context'
-function CartProduct({cartItem}) {
+import { CartContext } from '../context/Context'
+import './CartProduct.css'
+function CartProduct({ cartItem }) {
     const cart = useContext(CartContext);
     return (
-        <div>
-           <img  src={cartItem.thumbnailUrl}  alt={cartItem.id}/>
-           <p>{cartItem.title}</p>
-          
-           <button onClick={()=>{
-               cart.addToCart(cartItem)
-               }}> increment </button>
-           <p>{cartItem.qty}</p>
-           <button onClick={()=>{cart.removeFromCart(cartItem)}}> decrement </button>
+        <div className='cart-container'>
+            <img src={cartItem.image} alt={cartItem.title} />
+            <div className='cart-content'>
+                <p>{cartItem.title}</p>
+                <p>{cartItem.price}$</p>
+                <div className='cart-buttons'>
+                    <button className='cart-btn-1 button' onClick={() => { cart.removeFromCart(cartItem) }}> Decrease qty </button>
+                    <p>{cartItem.qty}</p>
+
+                    <button className='cart-btn-2 button' onClick={() => {
+                        cart.addToCart(cartItem)
+                    }}> Increase qty </button>
+                </div>
+            </div>
         </div>
     )
 }

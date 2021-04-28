@@ -1,0 +1,50 @@
+.cart-container{
+    display: flex;
+    flex-direction: row;
+    width:60%;
+    justify-content: space-around;
+    margin-top:10px;
+    /* background: #e8e8e8; */
+}
+img{
+    width:20%;
+    height:20%;
+    margin:auto;
+}
+.cart-content{
+    width:40%;
+}
+.cart-buttons{
+     display:flex;
+     /* justify-content: space-evenly; */
+     /* width:20px; */
+     /* padding:px;
+     margin:5px; */
+     align-items: center;
+     margin-top:50px;
+
+}
+.button{
+    padding:10px;
+    margin:5px;
+    color:white;
+    font-family: 'Poiret One', cursive;
+    border:none;
+    cursor: pointer;
+}
+.cart-btn-1{
+    background:#eb432a;
+    border-radius: 10px;
+}
+.cart-btn-1:hover{
+    
+    background: #ff6852;
+}
+.cart-btn-2{
+    background:#eb432a;
+    border-radius: 10px;
+}
+.cart-btn-2:hover{
+    background: #ff6852;
+    
+}

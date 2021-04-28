@@ -1,51 +1,56 @@
-import React,{useEffect,useState} from 'react'
+import React,{useContext,useState,useEffect} from 'react'
 
-
-// import dummyProducts from '../dummy_data/dummy'
- import Product from './Product'
+import Product from './Product'
 import './ProductList.css'
 
-function Product_list() {
-    const [products,setproducts]=useState([]);
-    const [loading, setLoading]=useState(true);
-    try{
-        useEffect(()=>{
-            fetch('https://fakestoreapi.com/products')
-            .then(response => response.json())
-            .then(json => {
-                setLoading(false);
-                setproducts(json);
-            })
+import {DataContext} from '../context/Context'
+
+function ProductList({loading}) {
+
+    const data=useContext(DataContext);
+    // const [products,setproducts]=useState([]);
+    // const [loading, setLoading]=useState(true);
+//   useEffect(()=>{
+//     if(data.products){
+//         setLoading(false);
+//         console.log(data.products)
+//      }
+//   },[data])
+    
+
+    // try{
+    //     useEffect(()=>{
+    //         fetch('https://fakestoreapi.com/products')
+    //         .then(response => response.json())
+    //         .then(json => {
+    //             setLoading(false);
+    //             setproducts(json); 
+    //         })
             
-        },[])
+    //     },[])
         
-    }catch(error){
-        console.log('error ',error);
-        setLoading(false);
-    }
-     
-
-
-
-    return (
-        <div className='Home_page'> 
-        {loading && <p>Loading....</p>}
+    // }catch(error){
+    //     console.log('error ',error);
+    //     setLoading(false);
+    // }
+     return (
+        <div className='outer_container'> 
+        <div className='loading'>{loading && <p >Loading....</p>}</div>
+        
         <ul className='container'>
             
             {
-              
-              products.map(product =>{
-                          console.log(product)
-                          return <Product key={product.id} product={product}/>
+                       data.products.map(product =>{
+                          return <Product key={product.id} id={product.id} product={product}/>
                         })
+                        
+                        
+                        
             }
-             {
-                //  console.log(products)
-             }
  
         </ul>
         </div>
     )
 }
 
-export default Product_list
+export default ProductList

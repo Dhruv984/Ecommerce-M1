@@ -1,48 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antic&display=swap');
+
+
 *{
     margin:0px;
     padding:0px;
 }
 .product{
     width:25vw;
-    height:25vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow:hidden;
-    margin:1rem;
-    /* background: black;
-    color:white; */
+    height:55vh;
+    margin: 1rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transition: all ease-in .4s;
 }
-.product_container_content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.product:hover{
+    transform: scale(1.1,1.1) ;
+    transition: all ease-in .4s;
 }
 .product_image{
-    width:50%;
-    height:50%;
+    width: 55%;
+    height: 60%;
+    margin: 0.5rem 0 0.25rem 0;
+    display: block;
+    margin: auto;
 }
-.text{
-    display: flex;
-    justify-content: space-between;
-}
-/* .product_container{
-    width:25vw;
-    margin: 5%;
-    border : 2px solid black;
-    padding:5%;
-}
-.image{
-  width:60%;
-}
-.product_container_content{
+.product-btn{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-} */
+    margin-top:10%;
+}
+.btn-1{
+    
+    background:#eb432a;
+    padding:0.5rem;
+    width:50%;
+    color:white;
+    font-family: 'Antic', sans-serif;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e8e8e8;
+    border-radius: 20px;
+    
+}
+.btn-1:hover{
+    background: #FF6852;
+    
+    cursor: pointer;
+}
+
+.btn-2{
+    padding:0.5rem;
+    width:50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e8e8e8;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.product_description{
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+    
+    
+    height:17%;
+}
+.product_text{
+    color:black;
+    /* font-family: 'Francois One', sans-serif; */
+    font-family: 'Antic', sans-serif;
+    font-weight:lighter;
+    text-decoration: none;
+    text-emphasis: none;
+   
+}

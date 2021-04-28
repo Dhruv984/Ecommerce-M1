@@ -1,34 +1,46 @@
-import React,{useContext,useState} from 'react'
-import {Link} from 'react-router-dom'
+import React, { useContext, useState,useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import './Product.css'
-import {CartContext} from '../context/Context'
-// import AddtoWishlist from './AddtoWishlist';
+import { CartContext } from '../context/Context';
 
-function Product({product}) {
+function Product({ product }) {
     const cart = useContext(CartContext)
-    const [button , setButton]=  useState(false);
+    const [button, setButton] = useState(false);
+    const [state,setState]=useState(false);
+    
+    useEffect(()=>{
+        let existingCartproduct= cart.cartItems.find(p=>product.id === p.id);
+        if(existingCartproduct){
+            setButton(true);
+        }
+        else{
+            setButton(false);
+        }
+    },[state])
+    
     return (
+
         <div className='product'>
-        <Link to= {`${product.id}/productDetails`}>
-        <div className='product_container'>
-            <div className='product_container_content'>
-               <img className='product_image' src={product.image} alt={product.title} />
-               <p className='text'>
-               {/* <h2>{product.name}</h2> */}
-               <h3>{product.title}</h3>
-               </p>
+            <Link to={`${product.id}/productDetails`}>
+                <img className='product_image' src={product.image} alt={product.title} />
+                <div className='product_description'><h3 className='product_text'>{product.title}</h3></div>
+
+            
+            </Link>
+            <div className='product-btn'>
+            <button className='btn-1' onClick={() => {
+                 setState(!state);
+                cart.addToCart(product)
+            }} >{!button?'Add to Cart':'Added...ADD MORE?'}</button>
+            <button className='btn-2' disabled={!button} onClick={() => {
+                 setState(!state)
+                cart.removeFromCart(product)
+            }} >Remove from cart</button>
             </div>
             
-        </div>
-        </Link>
-        <button onClick={()=>{
-            setButton(true);
-            cart.addToCart(product)}} >Add to Cart</button>
-        <button disabled={!button} onClick={()=>{
-            setButton(false)
-            cart.removeFromCart(product)}} >Remove from cart</button>
-        </div>
+        </div >
+        
     )
 }
 
